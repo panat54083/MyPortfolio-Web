@@ -1,0 +1,49 @@
+@import "../../styles/contants.scss";
+.wrapper {
+    .container {
+        // align-items: flex-start;
+        @media (max-width:$md){
+        flex-direction: column-reverse;
+        }
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        > div {
+            flex: 1;
+        }
+        .left {
+            @media (max-width: $sm) {
+                justify-content: center;
+            }
+            display: flex;
+            gap: 2rem;
+            img {
+                width: 30rem;
+                @media (max-width: $sm) {
+                    width: 23rem;
+                }
+                // margin-bottom: -5px;
+            }
+        }
+        .right {
+            @media (max-width: $sm), (max-width: $md) {
+                justify-content: center;
+                text-align: center;
+            }
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 2rem;
+            h1 {
+                font-size: 50px;
+                > :nth-child(1) {
+                    color: $secondary;
+                }
+            }
+            h3 {
+                font-size: larger;
+                color: rgb(184, 184, 184);
+            }
+        }
+    }
+}
