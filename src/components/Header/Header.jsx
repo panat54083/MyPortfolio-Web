@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import css from "./Header.module.scss";
 import { BiMenu } from "react-icons/bi";
+import { getMenuStyles } from "../../utils/motion";
+import { motion } from "framer-motion";
 
 const Header = () => {
     const [menuOpened, setMenuOpened] = useState(false);
+    
     return (
-        <div className={`bg-primary paddings ${css.wrapper}`}>
+        <motion.div className={`bg-primary paddings ${css.wrapper}`} style={{boxShadow:0}}>
             <div className={`flexCenter innerWidth ${css.container}`}>
                 <div className={css.name}>Panat</div>
-                <ul className={`flexCenter ${css.menu}`} >
+                <ul
+                    className={`flexCenter ${css.menu}`}
+                    style={getMenuStyles(menuOpened)}
+                >
                     <li>
                         <a href="#home">Home</a>
                     </li>
@@ -33,7 +39,7 @@ const Header = () => {
                     <BiMenu size={30} />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
