@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "./Header.module.scss";
 import { BiMenu } from "react-icons/bi";
-import { getMenuStyles } from "../../utils/motion";
+import { getMenuStyles, headerVariants } from "../../utils/motion";
 import { motion } from "framer-motion";
+import useHeaderShadow from "../../hooks/useHeaderShadow";
 
 const Header = () => {
     const [menuOpened, setMenuOpened] = useState(false);
-    
+    const headerShadow = useHeaderShadow();
+    const menuRef = useRef();
+
     return (
-        <motion.div className={`bg-primary paddings ${css.wrapper}`} style={{boxShadow:0}}>
+        <motion.div
+            variants={headerVariants}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.25 }}
+            className={`bg-primary paddings ${css.wrapper}`}
+            style={{ boxShadow: headerShadow }}
+        >
             <div className={`flexCenter innerWidth ${css.container}`}>
                 <div className={css.name}>Panat</div>
                 <ul
+                    ref={menuRef}
                     className={`flexCenter ${css.menu}`}
                     style={getMenuStyles(menuOpened)}
                 >
