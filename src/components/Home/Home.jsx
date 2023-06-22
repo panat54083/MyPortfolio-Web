@@ -1,12 +1,13 @@
 import React from "react";
 import css from "./Home.module.scss";
 import { motion } from "framer-motion";
-import { fadeIn, staggerChildren, zoomIn } from "../../utils/motion";
+import { fadeIn, staggerChildren} from "../../utils/motion";
+import { aboutMe} from "../../utils/data";
 
 const Home = () => {
-    const name = "Panat Siriwongtrakool";
     return (
         <section className={`${css.wrapper}`}>
+            <a className="anchor" id="home"></a>
             <motion.div
                 className={`innerWidth flexCenter ${css.container}`}
                 variants={staggerChildren}
@@ -37,10 +38,10 @@ const Home = () => {
                         <br />
                     </motion.h1>
                     <motion.h1 variants={fadeIn("right", "tween", 0.6, 1)}>
-                        <span>{name}</span>
+                        <span>{aboutMe.name}</span>
                     </motion.h1>
                     <motion.h3 variants={fadeIn("down", "tween", 1, 1)}>
-                        <div>I want to be a Developer</div>
+                        <div>--- I want to be a Developer</div>
                     </motion.h3>
                 </div>
             </motion.div>
