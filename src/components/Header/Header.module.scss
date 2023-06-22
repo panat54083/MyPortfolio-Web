@@ -19,7 +19,7 @@
             
         }
         .menu {
-            @media (max-width: $sm), (max-width: $md) {
+            @media (max-width: $sm) {
                 position: absolute;
                 list-style: none;
                 gap: 2rem;
@@ -55,7 +55,7 @@
             }
         }
         .menuIcon {
-            @media (max-width: $sm), (max-width: $md) {
+            @media (max-width: $sm){
                 display: block;
             }
             display: none;

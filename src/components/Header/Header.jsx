@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "./Header.module.scss";
 import { BiMenu } from "react-icons/bi";
 import { getMenuStyles, headerVariants } from "../../utils/motion";
@@ -14,7 +14,6 @@ const Header = () => {
         menuRef,
         setMenuOpened,
     });
-
     return (
         <motion.div
             variants={headerVariants}
@@ -50,7 +49,10 @@ const Header = () => {
                 {/* for medium and small screen */}
                 <div
                     className={css.menuIcon}
-                    onClick={() => setMenuOpened((prev) => !prev)}
+                    ref={menuRef}
+                    onClick={() => {
+                        setMenuOpened((prev) => !prev);
+                    }}
                 >
                     <BiMenu size={30} />
                 </div>

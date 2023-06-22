@@ -11,6 +11,7 @@ export default function useOutsideAlerter({ menuRef, setMenuOpened }) {
                 if (viewport_width <= 640) {
                     setMenuOpened(false);
                 }
+                    // setMenuOpened(false);
             }
         }
         // Bind the event listener
