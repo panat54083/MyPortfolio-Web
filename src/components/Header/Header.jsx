@@ -36,7 +36,7 @@ const Header = () => {
                     <li>
                         <a href="#about">About</a>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href="#skills">Skills</a>
                     </li>
                     <li>
@@ -44,7 +44,7 @@ const Header = () => {
                     </li>
                     <li>
                         <a href="#contact">Contact</a>
-                    </li>
+                    </li> */}
                 </ul>
                 {/* for medium and small screen */}
                 <div

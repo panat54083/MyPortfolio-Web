@@ -14,23 +14,31 @@ const About = () => {
             className={`${css.wrapper}`}
         >
             <a className="anchor" id="about"></a>
-            <div className={`paddings flexCenter innerWidth ${css.container}`}>
-                <motion.div
-                    className={css.leftSide}
-                    variants={textVariant(0.5)}
-                >
-                    <span className="primaryText">About Me</span>
-                    {briefMe.map((para, i) => {
-                        return (
-                            <span className="secondaryText" key={i}>
-                                {para}
-                            </span>
-                        );
-                    })}
+            <div className={`paddings innerWidth ${css.container}`}>
+                <motion.div className={css.leftSide} variants={textVariant(0)}>
+                    <div className={`${css.aboutme}`}>
+                        <span className="primaryText">About Me</span>
+                        {briefMe.map((para, i) => {
+                            return (
+                                <span className="secondaryText" key={i} >
+                                    {para}
+                                </span>
+                            );
+                        })}
+                    </div>
                     <div className={`${css.projects}`}>
                         {projectExperience.map((exp, i) => {
                             return (
-                                <motion.div className={css.exp} key={i} variants={fadeIn("up", "tween",(i+2)*0.2, 1)}>
+                                <motion.div
+                                    className={css.exp}
+                                    key={i}
+                                    variants={fadeIn(
+                                        "up",
+                                        "tween",
+                                        (i + 2) * 0.2,
+                                        1
+                                    )}
+                                >
                                     <div
                                         className="flexCenter"
                                         style={{ background: exp.bg }}
