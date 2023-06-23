@@ -27,3 +27,16 @@ export const aboutMe = {
     nickname: "Por",
     age: 23,
     }
+
+export const educationExp = [
+    {
+        major: "Bachelor of Computer Engineering",
+        place: "King Mongkut 's University of Technology North Bangkok",
+        tenure: "2019 - Present" 
+    },
+    {
+        major: "Science Mathematics and English Program",
+        place: "Suratpittaya school",
+        tenure: "2013 - 2018" 
+    }
+]

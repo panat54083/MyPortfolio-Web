@@ -56,6 +56,33 @@
                     }
                 }
             }
+            .educateContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .educateExp {
+                flex-direction: column;
+                width: 100%;
+                gap: 1.4rem;
+
+                .educ {
+                    // background: #000;
+                    width: 100%;
+                    justify-content: space-between;
+                    line-height: 40px;
+                    align-items: flex-start;
+                    > div {
+                        flex: 1;
+                    }
+                    .post {
+                    }
+                    .role {
+                        margin-left: 2rem;
+                    }
+                }
+            }
         }
         .rightSide {
             img {
@@ -63,6 +90,11 @@
                 @media (max-width: $sm) {
                     display: none;
                 }
+            }
+            .stickyImage {
+                position: sticky;
+                top: 30%;
+                // transition: all 200ms ease-out;
             }
         }
     }

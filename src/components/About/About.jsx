@@ -1,8 +1,14 @@
 import React from "react";
 import css from "./About.module.scss";
 import { motion } from "framer-motion";
-import { fadeIn, staggerChildren, textVariant } from "../../utils/motion";
-import { briefMe, projectExperience } from "../../utils/data";
+import {
+    fadeIn,
+    staggerChildren,
+    textVariant,
+    textVariant2,
+    zoomIn,
+} from "../../utils/motion";
+import { briefMe, educationExp, projectExperience } from "../../utils/data";
 
 const About = () => {
     return (
@@ -20,7 +26,7 @@ const About = () => {
                         <span className="primaryText">About Me</span>
                         {briefMe.map((para, i) => {
                             return (
-                                <span className="secondaryText" key={i} >
+                                <span className="secondaryText" key={i}>
                                     {para}
                                 </span>
                             );
@@ -55,9 +61,37 @@ const About = () => {
                             );
                         })}
                     </div>
+                    <div
+                        className={`innerWidth topPaddings ${css.educateContainer}`}
+                    >
+                        <span className="primaryText ">Education</span>
+                        <div className={css.educateExp}>
+                            {educationExp.map((edu, i) => {
+                                return (
+                                    <motion.div
+                                        className={`flexCenter ${css.educ}`}
+                                        key={i}
+                                        variants={textVariant2}
+                                    >
+                                        <div className={css.post}>
+                                            <h1>{edu.place}</h1>
+                                            <p>{edu.tenure}</p>
+                                        </div>
+                                        <div className={css.role}>
+                                            <h1>{edu.major}</h1>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </motion.div>
                 <div className={css.rightSide}>
-                    <img src="./Dipper-Pines-PNG-Pic.png" alt="" />
+                    <img
+                        src="./Dipper-Pines-PNG-Pic.png"
+                        alt=""
+                        className={css.stickyImage}
+                    />
                 </div>
             </div>
         </motion.section>
