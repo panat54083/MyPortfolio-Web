@@ -21,7 +21,7 @@ const About = () => {
         >
             <a className="anchor" id="about"></a>
             <div className={`paddings innerWidth ${css.container}`}>
-                <motion.div className={css.leftSide} variants={textVariant(0)}>
+                <motion.div className={css.leftSide} variants={textVariant(0.5)}>
                     <div className={`${css.aboutme}`}>
                         <span className="primaryText">About Me</span>
                         {briefMe.map((para, i) => {
@@ -32,7 +32,7 @@ const About = () => {
                             );
                         })}
                     </div>
-                    <div className={`${css.projects}`}>
+                    <div className={`bottomPaddings ${css.projects}`}>
                         {projectExperience.map((exp, i) => {
                             return (
                                 <motion.div
@@ -61,17 +61,20 @@ const About = () => {
                             );
                         })}
                     </div>
-                    <div
-                        className={`innerWidth topPaddings ${css.educateContainer}`}
-                    >
+                    <motion.div variants={textVariant(1)}>
                         <span className="primaryText ">Education</span>
-                        <div className={css.educateExp}>
+
+                    </motion.div>
+                    <div
+                        className={`innerWidth topPaddings flexContainer ${css.educateContainer}`}
+                    >
+                        <div className={`flexCenter ${css.educateExp}`}>
                             {educationExp.map((edu, i) => {
                                 return (
                                     <motion.div
                                         className={`flexCenter ${css.educ}`}
                                         key={i}
-                                        variants={textVariant2}
+                                        variants={textVariant(1)}
                                     >
                                         <div className={css.post}>
                                             <h1>{edu.place}</h1>
@@ -84,6 +87,27 @@ const About = () => {
                                 );
                             })}
                         </div>
+                        <motion.div
+                            variants={zoomIn(1, 1)}
+                            className={css.progressbar}
+                        >
+                            <motion.div
+                                className={css.line}
+                                variants={fadeIn("down", "tween", 2, 1.5)}
+                            ></motion.div>
+                            <div>
+                                <div
+                                    className={css.circle}
+                                    style={{ background: "#286F6C" }}
+                                ></div>
+                            </div>
+                            <div>
+                                <div
+                                    className={css.circle}
+                                    style={{ background: "#F2704E" }}
+                                ></div>
+                            </div>
+                        </motion.div>
                     </div>
                 </motion.div>
                 <div className={css.rightSide}>
