@@ -34,11 +34,14 @@ const Skill = () => {
                                 className={`secondaryText ${css.skill}`}
                                 key={i}
                                 variants={fadeIn(
-                                    "down",
+                                    "right",
                                     "tween",
                                     (i + 2) * 0.2,
                                     1
                                 )}
+                                whileHover={{
+                                    scale: 1.2,
+                                }}
                             >
                                 <img src={_s.src} alt="" />
                                 <span>{_s.name}</span>

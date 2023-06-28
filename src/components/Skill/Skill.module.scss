@@ -4,13 +4,17 @@
     .container {
         // display: flex;
         .header {
+            @media (max-width: $md) {
+                justify-content: center;
+                text-align: center;
+            }
             display: flex;
             flex-direction: column;
         }
         .skillContainer {
             padding-top: 1rem;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 2rem;
             .skill {
                 position: relative;
                 display: flex;
@@ -26,7 +30,7 @@
                 padding-top: 1.5rem;
                 padding-bottom: 1.5rem;
                 width: 15rem;
-                transition: all 400ms ease-out;
+                transition: all 200ms ease-out;
                 overflow: hidden;
                 :nth-child(2) {
                     display: none;
@@ -38,7 +42,6 @@
                     :nth-child(3) {
                         display: none;
                     }
-                    transform: scale(1.1);
                     box-shadow: 10px 20px 13px rgba(0, 0, 0, 0.14);
                 }
 
@@ -53,7 +56,7 @@
                     height: 1rem;
                     display: flex;
                     background: #fff;
-                    :nth-child(1){
+                    :nth-child(1) {
                         background: $secondary;
                     }
                 }
