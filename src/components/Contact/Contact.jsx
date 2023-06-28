@@ -73,10 +73,6 @@ const Contact = () => {
                                         Your Name
                                     </label>
                                     <input
-                                        onChange={(e) =>
-                                            setUsername(e.target.value)
-                                        }
-                                        value={username}
                                         className={`${css.form_input}`}
                                         type="text"
                                     />
