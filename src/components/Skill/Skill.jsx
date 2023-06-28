@@ -12,7 +12,7 @@ import {
 const Skill = () => {
     return (
         <motion.section
-            className={`${css.wrapper}`}
+            className={`yPaddings ${css.wrapper}`}
             variants={staggerChildren}
             initial="hidden"
             whileInView={"show"}

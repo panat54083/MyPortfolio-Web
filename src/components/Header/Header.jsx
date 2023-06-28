@@ -42,9 +42,9 @@ const Header = () => {
                     <li>
                         <a href="#projects">Projects</a>
                     </li>
-                    {/* <li>
+                    <li>
                         <a href="#contact">Contact</a>
-                    </li> */}
+                    </li>
                 </ul>
                 {/* for medium and small screen */}
                 <div

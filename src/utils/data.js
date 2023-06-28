@@ -31,6 +31,8 @@ export const aboutMe = {
     name: "Panat Siriwongtrakool",
     nickname: "Por",
     age: 23,
+    phone: "+984396379",
+    email: "panat.siriwong@gmail.com"
 };
 
 export const educationExp = [
@@ -94,12 +96,11 @@ export const projects = [
         website: null
     },
     {
-        name: "Lang Mor App",
-        description:
-            "The application is for KMUTNB community. Allow users to order food from restaurants located behind KMUTNB, post or find lost items, and buy or sell used items.",
-        img: "./Projects/lang_mor_app.jpg",
+        name: "Portfolio-Web",
+        description:"This is My portfolio website. It shows my introduction, education and projects",
+        img: "./Projects/portfolio_web.jpg",
         github: "https://github.com/panat54083/MyPortfolio-Web",
-        website: null
+        website: "https://github.com/panat54083/MyPortfolio-Web"
     },
     // {
     //     name: "Lang Mor App",

@@ -1,4 +1,4 @@
-import { staggerChildren } from "../../utils/motion";
+import { staggerChildren, wipeMotion } from "../../utils/motion";
 import css from "./Project.module.scss";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
@@ -13,10 +13,20 @@ const Project = () => {
             whileInView={"show"}
             viewport={{ once: false, amount: 0.25 }}
         >
+            <motion.div
+                className={`${css.line}`}
+                variants={wipeMotion("left", 0, 2)}
+            ></motion.div>
             <a className="anchor" id="projects"></a>
             <motion.div className={`yPaddings innerWidth ${css.container}`}>
                 <div className={`flexCenter ${css.heading}`}>
                     <span className="primaryText">My Projects</span>
+                    <span className="secondaryText">
+                        All of these are my proud projects.
+                    </span>
+                    <span className="secondaryText">
+                        Count: {projects.length}
+                    </span>
                 </div>
                 <div className={`yPaddings ${css.projects}`}>
                     <Slider {...sliderSettings} className={css.slider}>
