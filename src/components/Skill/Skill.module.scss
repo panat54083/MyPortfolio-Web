@@ -57,7 +57,11 @@
                     display: flex;
                     background: #fff;
                     :nth-child(1) {
-                        background: $secondary;
+                        background: radial-gradient(
+                            circle at 10% 20%,
+                            rgb(255, 200, 124) 0%,
+                            rgb(252, 251, 121) 90%
+                        );
                     }
                 }
             }
