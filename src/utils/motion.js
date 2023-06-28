@@ -63,6 +63,31 @@ export const fadeIn = (direction, type, delay, duration) => ({
     },
 });
 
+export const wipeMotion = (direction, delay, duration) => ({
+    hidden: {
+        clipPath:
+            direction === "left"
+                ? "inset(0% 100% 0% 0%)"
+                : direction === "right"
+                ? "inset(0% 0% 0% 100%)"
+                : direction === "up"
+                ? "inset(100% 0% 0% 0%)"
+                : direction === "down"
+                ? "inset(0% 0% 100% 0%)"
+                : "inset(0% 0% 0% 0%)",
+        opacity: 0,
+    },
+    show: {
+        clipPath: "inset(0% 0% 0% 0%)",
+        opacity: 1,
+        transition: {
+            delay,
+            duration,
+            ease: "easeOut",
+        },
+    },
+});
+
 export const zoomIn = (delay, duration) => ({
     hidden: {
         scale: 0,
