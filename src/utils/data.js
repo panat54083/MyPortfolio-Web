@@ -107,7 +107,6 @@ export const projects = [
         description:"This is My portfolio website. It shows my introduction, education and projects",
         img: "./Projects/portfolio_web.jpg",
         github: "https://github.com/panat54083/MyPortfolio-Web",
-        website: "https://github.com/panat54083/MyPortfolio-Web"
     },
     // {
     //     name: "Lang Mor App",
