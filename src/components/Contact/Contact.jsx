@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "./Contact.module.scss";
 import { motion } from "framer-motion";
 import { staggerChildren } from "../../utils/motion";
 import ContactCard from "./ContactCard";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
     const [username, setUsername] = useState("");
@@ -12,6 +13,11 @@ const Contact = () => {
     const [errMsg, setErrMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
 
+    const YOUR_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const YOUR_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const YOUR_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const form = useRef();
     const emailValidation = () => {
         return String(email)
             .toLocaleLowerCase()
@@ -32,14 +38,32 @@ const Contact = () => {
         } else if (message === "") {
             setErrMsg("Message is required!");
         } else {
-            setSuccessMsg(
-                `Your Messages has been sent Successfully!`
-            );
-            setErrMsg("");
-            setUsername("");
-            setEmail("");
-            setSubject("");
-            setMessage("");
+            //send by using EmailJS
+            emailjs
+                .sendForm(
+                    YOUR_SERVICE_ID,
+                    YOUR_TEMPLATE_ID,
+                    form.current,
+                    YOUR_PUBLIC_KEY
+                )
+                .then(
+                    (result) => {
+                        console.log(result.text);
+                        if (result.text === "OK") {
+                            setSuccessMsg(
+                                `Your Messages has been sent Successfully!`
+                            );
+                            setErrMsg("");
+                            setUsername("");
+                            setEmail("");
+                            setSubject("");
+                            setMessage("");
+                        }
+                    },
+                    (error) => {
+                        console.log(error.text);
+                    }
+                );
         }
     };
 
@@ -74,7 +98,7 @@ const Contact = () => {
                         <ContactCard />
                     </div>
                     <div className={`${css.right}`}>
-                        <form className={`${css.formWrapper}`}>
+                        <form ref={form} className={`${css.formWrapper}`}>
                             {errMsg && (
                                 <div className={css.errMsg}>
                                     <p>{errMsg}</p>
@@ -102,6 +126,7 @@ const Contact = () => {
                                             setUsername(e.target.value)
                                         }
                                         value={username}
+                                        name="user_name"
                                     />
                                 </div>
                                 <div className={css.form_field}>
@@ -116,12 +141,13 @@ const Contact = () => {
                                                     "Give a valid Email!") &&
                                             css.error
                                         }`}
-                                        type="text"
+                                        type="email"
                                         placeholder="Your Email"
                                         onChange={(e) =>
                                             setEmail(e.target.value)
                                         }
                                         value={email}
+                                        name="user_email"
                                     />
                                 </div>
                                 <div className={css.form_field}>
@@ -140,6 +166,7 @@ const Contact = () => {
                                             setSubject(e.target.value)
                                         }
                                         value={subject}
+                                        name="user_subject"
                                     />
                                 </div>
                                 <div className={css.form_field}>
@@ -157,6 +184,7 @@ const Contact = () => {
                                             setMessage(e.target.value)
                                         }
                                         value={message}
+                                        name="user_message"
                                     />
                                 </div>
                                 {errMsg && (
