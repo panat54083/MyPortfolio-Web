@@ -57,6 +57,9 @@ const Contact = () => {
             <div className={`yPaddings innerWidth ${css.container}`}>
                 <div className={`flexCenter ${css.heading}`}>
                     <span className="primaryText">Contact Me</span>
+                    <span className="secondaryText">
+                        Get in touch. Let's work together.
+                    </span>
                 </div>
                 <div className={`yPaddings ${css.body}`}>
                     <div className={`${css.left}`}>

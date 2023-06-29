@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./Contact.module.scss";
-import { aboutMe } from "../../utils/data";
+import { aboutMe, socials } from "../../utils/data";
 import { FaFacebookF, FaGithubSquare, FaLinkedinIn } from "react-icons/fa";
 
 const ContactCard = () => {
@@ -11,25 +11,25 @@ const ContactCard = () => {
                     <img src="./shake_hand_cartoon.png" />
                 </div>
                 <div className={`${css.body}`}>
-                    <h1>{aboutMe.name}</h1>
+                    <h1>Inquiries:</h1>
                     <p>
-                        Phone: <span>{aboutMe.phone}</span>
+                        Please fill out the form on the right or email us
+                        directly at{" "}
+                        <a href={`mailto:${aboutMe.email}`}>here</a>
                     </p>
-                    <p>
-                        Email: <span>{aboutMe.email}</span>
-                    </p>
+                    <p>*** Please check Spam folders for our response.</p>
                 </div>
                 <div className={`${css.foot}`}>
                     <h2>Find me in</h2>
 
                     <div className={`${css.icons}`}>
-                        <a className={css.icon}>
+                        <a className={css.icon} href={socials.facebook}>
                             <FaFacebookF />
                         </a>
-                        <a className={css.icon}>
+                        <a className={css.icon} href={socials.linkedin}>
                             <FaLinkedinIn />
                         </a>
-                        <a className={css.icon}>
+                        <a className={css.icon} href={socials.github}>
                             <FaGithubSquare />
                         </a>
                     </div>
