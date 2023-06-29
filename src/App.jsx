@@ -8,16 +8,18 @@ import Project from "./components/Project/Project";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
     return (
         <div className={`bg-primary ${css.container}`}>
-            <Header/>
-            <Home/>
-            <About/>
-            <Skill/>
-            <Project/>
-            <Contact/>
-            <Footer/>
+            <Header />
+            <Home />
+            <About />
+            <Skill />
+            <Project />
+            <Contact />
+            <Footer />
         </div>
     );
 };

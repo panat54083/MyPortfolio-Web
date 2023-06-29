@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { staggerChildren } from "../../utils/motion";
 import ContactCard from "./ContactCard";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
 
 const Contact = () => {
     const [username, setUsername] = useState("");
@@ -11,11 +12,33 @@ const Contact = () => {
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
     const [errMsg, setErrMsg] = useState("");
-    const [successMsg, setSuccessMsg] = useState("");
 
     const YOUR_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const YOUR_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const YOUR_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const notifySuccessfully = () =>
+        toast.success("Send message successfully!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    const notifyError = (errMsg) =>
+        toast.error(`${errMsg}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
 
     const form = useRef();
     const emailValidation = () => {
@@ -50,9 +73,7 @@ const Contact = () => {
                     (result) => {
                         console.log(result.text);
                         if (result.text === "OK") {
-                            setSuccessMsg(
-                                `Your Messages has been sent Successfully!`
-                            );
+                            notifySuccessfully();
                             setErrMsg("");
                             setUsername("");
                             setEmail("");
@@ -68,15 +89,11 @@ const Contact = () => {
     };
 
     useEffect(() => {
-        if (successMsg !== "") {
-            const timeout = setTimeout(() => {
-                setSuccessMsg("");
-            }, 5000);
-
-            return () => clearTimeout(timeout);
+        if (errMsg) {
+            console.log(errMsg)
+            notifyError(errMsg);
         }
-    }, [successMsg]);
-
+    }, [errMsg]);
     return (
         <motion.section
             className={`${css.wrapper}`}
@@ -99,16 +116,6 @@ const Contact = () => {
                     </div>
                     <div className={`${css.right}`}>
                         <form ref={form} className={`${css.formWrapper}`}>
-                            {errMsg && (
-                                <div className={css.errMsg}>
-                                    <p>{errMsg}</p>
-                                </div>
-                            )}
-                            {successMsg && (
-                                <div className={css.successMsg}>
-                                    <p>{successMsg}</p>
-                                </div>
-                            )}
                             <div className={css.formContainer}>
                                 <div className={css.form_field}>
                                     <label className={css.form_label}>
@@ -187,16 +194,6 @@ const Contact = () => {
                                         name="user_message"
                                     />
                                 </div>
-                                {errMsg && (
-                                    <div className={css.errMsg}>
-                                        <p>{errMsg}</p>
-                                    </div>
-                                )}
-                                {successMsg && (
-                                    <div className={css.successMsg}>
-                                        <p>{successMsg}</p>
-                                    </div>
-                                )}
                                 <div className={css.button}>
                                     <button onClick={handleSend}>
                                         Send Message
@@ -207,6 +204,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </motion.section>
     );
 };
