@@ -53,6 +53,7 @@ const Contact = () => {
             whileInView={"show"}
             viewport={{ once: false, amount: 0.25 }}
         >
+            <a className="anchor" id="contact"></a>
             <div className={`yPaddings innerWidth ${css.container}`}>
                 <div className={`flexCenter ${css.heading}`}>
                     <span className="primaryText">Contact Me</span>

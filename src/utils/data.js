@@ -35,6 +35,13 @@ export const aboutMe = {
     email: "panat.siriwong@gmail.com"
 };
 
+export const socials = {
+    facebook: "https://www.facebook.com/panat.siriwongtrakool/",
+    linkedin: "https://www.linkedin.com/in/panat-siriwongtrakool-6a2850240/",
+    github: "https://github.com/panat54083",
+
+}
+
 export const educationExp = [
     {
         major: "Bachelor of Computer Engineering",
