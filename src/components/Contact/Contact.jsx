@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import css from "./Contact.module.scss";
 import { motion } from "framer-motion";
 import { staggerChildren } from "../../utils/motion";
@@ -6,7 +6,6 @@ import ContactCard from "./ContactCard";
 
 const Contact = () => {
     const [username, setUsername] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
@@ -16,14 +15,14 @@ const Contact = () => {
     const emailValidation = () => {
         return String(email)
             .toLocaleLowerCase()
-            .match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
+            .match(
+                /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+            );
     };
     const handleSend = (e) => {
         e.preventDefault();
         if (username === "") {
             setErrMsg("Username is required!");
-        } else if (phoneNumber === "") {
-            setErrMsg("Phone number is required!");
         } else if (email === "") {
             setErrMsg("Please give your Email!");
         } else if (!emailValidation(email)) {
@@ -34,16 +33,25 @@ const Contact = () => {
             setErrMsg("Message is required!");
         } else {
             setSuccessMsg(
-                `Thank you dear ${username}, Your Messages has been sent Successfully!`
+                `Your Messages has been sent Successfully!`
             );
             setErrMsg("");
             setUsername("");
-            setPhoneNumber("");
             setEmail("");
             setSubject("");
             setMessage("");
         }
     };
+
+    useEffect(() => {
+        if (successMsg !== "") {
+            const timeout = setTimeout(() => {
+                setSuccessMsg("");
+            }, 5000);
+
+            return () => clearTimeout(timeout);
+        }
+    }, [successMsg]);
 
     return (
         <motion.section
@@ -67,19 +75,104 @@ const Contact = () => {
                     </div>
                     <div className={`${css.right}`}>
                         <form className={`${css.formWrapper}`}>
-                            {errMsg && <p className={css.errMsg}>{errMsg}</p>}
+                            {errMsg && (
+                                <div className={css.errMsg}>
+                                    <p>{errMsg}</p>
+                                </div>
+                            )}
                             {successMsg && (
-                                <p className={css.successMsg}>{successMsg}</p>
+                                <div className={css.successMsg}>
+                                    <p>{successMsg}</p>
+                                </div>
                             )}
                             <div className={css.formContainer}>
-                                <div>
+                                <div className={css.form_field}>
                                     <label className={css.form_label}>
-                                        Your Name
+                                        Name:
                                     </label>
                                     <input
-                                        className={`${css.form_input}`}
+                                        className={`${css.form_input} ${
+                                            errMsg ===
+                                                "Username is required!" &&
+                                            css.error
+                                        }`}
                                         type="text"
+                                        placeholder="Your name"
+                                        onChange={(e) =>
+                                            setUsername(e.target.value)
+                                        }
+                                        value={username}
                                     />
+                                </div>
+                                <div className={css.form_field}>
+                                    <label className={`${css.form_label}`}>
+                                        Email Address:
+                                    </label>
+                                    <input
+                                        className={`${css.form_input} ${
+                                            (errMsg ===
+                                                "Please give your Email!" ||
+                                                errMsg ===
+                                                    "Give a valid Email!") &&
+                                            css.error
+                                        }`}
+                                        type="text"
+                                        placeholder="Your Email"
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
+                                        value={email}
+                                    />
+                                </div>
+                                <div className={css.form_field}>
+                                    <label className={`${css.form_label}`}>
+                                        Subject:
+                                    </label>
+                                    <input
+                                        className={`${css.form_input} ${
+                                            errMsg ===
+                                                "Plese give your Subject!" &&
+                                            css.error
+                                        }`}
+                                        type="text"
+                                        placeholder="Your subject"
+                                        onChange={(e) =>
+                                            setSubject(e.target.value)
+                                        }
+                                        value={subject}
+                                    />
+                                </div>
+                                <div className={css.form_field}>
+                                    <label className={`${css.form_label}`}>
+                                        Message:
+                                    </label>
+                                    <textarea
+                                        className={`${css.form_textarea} ${
+                                            errMsg === "Message is required!" &&
+                                            css.error
+                                        }`}
+                                        type="text"
+                                        placeholder="Your message"
+                                        onChange={(e) =>
+                                            setMessage(e.target.value)
+                                        }
+                                        value={message}
+                                    />
+                                </div>
+                                {errMsg && (
+                                    <div className={css.errMsg}>
+                                        <p>{errMsg}</p>
+                                    </div>
+                                )}
+                                {successMsg && (
+                                    <div className={css.successMsg}>
+                                        <p>{successMsg}</p>
+                                    </div>
+                                )}
+                                <div className={css.button}>
+                                    <button onClick={handleSend}>
+                                        Send Message
+                                    </button>
                                 </div>
                             </div>
                         </form>
