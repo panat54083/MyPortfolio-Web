@@ -16,7 +16,6 @@
         .name {
             font-size: 1.5rem;
             // font-weight: bold;
-            
         }
         .menu {
             @media (max-width: $sm) {
@@ -45,17 +44,33 @@
             cursor: pointer;
 
             li {
+                // display: inline-block;
                 a {
                     color: inherit;
+                    position: relative;
                     text-decoration: none;
+                    transition: color 0.3;
                 }
-                &:hover {
+                &:hover{
                     color: $secondary;
+                }
+                a::after{
+                    content: "";
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    width: 0%;
+                    height: 1px;
+                    background-color: $secondary;
+                    transition: width 0.3s; 
+                }
+                a:hover::after{
+                    width: 100%;
                 }
             }
         }
         .menuIcon {
-            @media (max-width: $sm){
+            @media (max-width: $sm) {
                 display: block;
             }
             display: none;
