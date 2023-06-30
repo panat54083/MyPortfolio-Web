@@ -21,9 +21,14 @@ const About = () => {
         >
             <a className="anchor" id="about"></a>
             <div className={`paddings innerWidth ${css.container}`}>
-                <motion.div className={css.leftSide} variants={textVariant(0.5)}>
+                <motion.div
+                    className={css.leftSide}
+                    variants={textVariant(0.5)}
+                >
                     <div className={`${css.aboutme}`}>
-                        <span className="primaryText">About Me</span>
+                        <span className="primaryText">
+                            About <span style={{ color: "#ff5f15" }}>Me</span>
+                        </span>
                         {briefMe.map((para, i) => {
                             return (
                                 <span className="secondaryText" key={i}>
@@ -63,7 +68,6 @@ const About = () => {
                     </div>
                     <motion.div variants={textVariant(1)}>
                         <span className="primaryText ">Education</span>
-
                     </motion.div>
                     <div
                         className={`innerWidth topPaddings flexContainer ${css.educateContainer}`}

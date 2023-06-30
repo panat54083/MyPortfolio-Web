@@ -105,7 +105,7 @@ const Contact = () => {
             <a className="anchor" id="contact"></a>
             <div className={`yPaddings innerWidth ${css.container}`}>
                 <div className={`flexCenter ${css.heading}`}>
-                    <span className="primaryText">Contact Me</span>
+                    <span className="primaryText">Contact <span style={{ color: "#ff5f15" }}>Me</span></span>
                     <span className="secondaryText">
                         Get in touch. Let's work together.
                     </span>

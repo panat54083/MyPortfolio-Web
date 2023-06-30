@@ -20,7 +20,9 @@ const Project = () => {
             <a className="anchor" id="projects"></a>
             <motion.div className={`yPaddings innerWidth ${css.container}`}>
                 <div className={`flexCenter ${css.heading}`}>
-                    <span className="primaryText">My Projects</span>
+                    <span className="primaryText">
+                        <span style={{ color: "#ff5f15" }}>My</span> Projects
+                    </span>
                     <span className="secondaryText">
                         All of these are my proud projects.
                     </span>

@@ -27,11 +27,17 @@ const Footer = () => {
                     <div className={css.info}>
                         <span className="secondaryText">Contact</span>
                     </div>
-                    <div className={`${css.icons}`}>
+                    <div className={`${css.contacts}`}>
                         <span>
-                            Phone: <a href={`tel:${aboutMe.phone}`}>{aboutMe.phone}</a>
+                            Phone:{" "}
+                            <a href={`tel:${aboutMe.phone}`}>{aboutMe.phone}</a>
                         </span>
-                        <span>Email: {aboutMe.email}</span>
+                        <span>
+                            Email:{" "}
+                            <a href={`mailto:${aboutMe.email}`}>
+                                {aboutMe.email}
+                            </a>
+                        </span>
                     </div>
                     <div className={css.info}>
                         <span className="secondaryText">Social</span>

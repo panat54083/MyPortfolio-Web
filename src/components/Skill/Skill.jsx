@@ -21,7 +21,9 @@ const Skill = () => {
             <a className="anchor" id="skills"></a>
             <div className={`paddings innerWidth ${css.container}`}>
                 <motion.div className={`${css.header}`} variants={textVariant}>
-                    <span className="primaryText">My Skill</span>
+                    <span className="primaryText">
+                        <span style={{ color: "#ff5f15" }}>My</span> Skill
+                    </span>
                     <span className="secondaryText">
                         All of these are the skills I believe I can use
                         productively. The level is rated by confidence in use.

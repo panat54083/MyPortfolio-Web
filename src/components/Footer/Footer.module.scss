@@ -36,7 +36,7 @@
                     font-weight: bolder;
                 }
             }
-            .icons {
+            .icons, .contacts {
                 @media (max-width: $sm) {
                     flex-direction: row;
                     flex-wrap: wrap;
@@ -60,6 +60,12 @@
                         color: $secondary;
                         transform: translateY(-5px);
                     }
+                }
+            }
+            .contacts {
+                a{
+                    color: rgba(255, 136, 0, 0.767);
+                    text-decoration: none;
                 }
             }
         }
