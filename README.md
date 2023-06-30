@@ -5,6 +5,7 @@ This is a project in which I represent myself and demonstrate who I am. It's sim
 
 I'm doing this to learn how to use react.js and I'd like to have my own website.
 
+Preview: [Click here](https://panat54083.github.io/MyPortfolio-Web/)
 
 ## Tools
 

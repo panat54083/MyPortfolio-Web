@@ -28,7 +28,9 @@ const Footer = () => {
                         <span className="secondaryText">Contact</span>
                     </div>
                     <div className={`${css.icons}`}>
-                        <span>Phone: {aboutMe.phone}</span>
+                        <span>
+                            Phone: <a href={`tel:${aboutMe.phone}`}>{aboutMe.phone}</a>
+                        </span>
                         <span>Email: {aboutMe.email}</span>
                     </div>
                     <div className={css.info}>

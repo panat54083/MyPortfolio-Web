@@ -23,15 +23,15 @@ export const projectExperience = [
 ];
 
 export const briefMe = [
-    "I'm a fresh graduate. I am interested in being a Website / Mobile developer.",
-    "I have experience designing and developing mobile applications. I can work well as a team and am responsible for all my work.",
+    "I'm a fresh graduate. I'm interested in being a Full-Stack developer. Cooperative, ambitious, and Competitive are my Strengths.",
+    "My interests include computer games and sports such as running and basketball."
 ];
 
 export const aboutMe = {
     name: "Panat Siriwongtrakool",
     nickname: "Por",
     age: 23,
-    phone: "+984396379",
+    phone: "+66984396379",
     email: "panat.siriwong@gmail.com"
 };
 
